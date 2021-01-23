@@ -1,0 +1,429 @@
+from tkinter import *
+import tkinter.messagebox
+from pygame import mixer
+import time
+import turtle
+from turtle import *
+from random import randint
+mixer.init()
+def play_music():
+    mixer.music.load('bgm.mp3')
+    mixer.music.play()
+def stop_music():
+    mixer.music.load('bgm.mp3')
+    mixer.music.stop()
+def game():
+    play_music()
+    window= turtle.Screen()
+    window.title("TURTLE RACE")
+    turtle.bgcolor("black")
+    turtle.speed(0)
+    turtle.penup()
+    turtle.setpos(-140, 200)
+    turtle.color("white")
+    turtle.write("TURTLE RACE", font=("Arial", 30, "bold"))
+    turtle.penup()
+
+    turtle.setpos(-400, -180)
+    turtle.color("silver")
+    turtle.begin_fill()
+    turtle.pendown()
+    turtle.forward(800)
+    turtle.right(90)
+    turtle.forward(300)
+    turtle.right(90)
+    turtle.forward(800)
+    turtle.right(90)
+    turtle.forward(300)
+    turtle.end_fill()
+
+    stamp_size=20
+    square_size=15
+    finish_Line=200
+    
+    turtle.color("white")
+    turtle.shape("square")
+    turtle.shapesize(square_size/stamp_size)
+    turtle.penup()
+    for i in range(10):
+        turtle.setpos(finish_Line, (150-(i*square_size*2)))
+        turtle.stamp()
+    for j in range(10):
+      turtle.setpos(finish_Line+square_size, ((150-square_size)-(j*square_size*2)))
+      turtle.stamp()
+    turtle.hideturtle()
+
+    turtle1 = Turtle()
+    turtle1.speed(0)
+    turtle1.color("white")
+    turtle1.shape("turtle")
+    turtle1.penup()
+    turtle1.goto(-250, 100)
+    turtle1.pendown()
+    
+    turtle2 = Turtle()
+    turtle2.speed(0)
+    turtle2.color("cyan")
+    turtle2.shape("turtle")
+    turtle2.penup()
+    turtle2.goto(-250, 50)
+    turtle2.pendown()
+
+    turtle3 = Turtle()
+    turtle3.speed(0)
+    turtle3.color("magenta")
+    turtle3.shape("turtle")
+    turtle3.penup()
+    turtle3.goto(-250, 0)
+    turtle3.pendown()
+
+    turtle4 = Turtle()
+    turtle4.speed(0)
+    turtle4.color("yellow")
+    turtle4.shape("turtle")
+    turtle4.penup()
+    turtle4.goto(-250, -50)
+    turtle4.pendown()
+    def store():
+        sai=select1.get()
+        q,w,e,r=0,0,0,0
+        a= "winner"
+        turtle.goto(0,-120)
+        turtle.write(a)
+        addk = 0
+        addkk = 0
+        addkkk = 0
+        addkkkk = 0
+        for i in range(180):
+          k = randint(1, 5)
+          l = randint(1, 5)
+          m = randint(1, 5)
+          n = randint(1, 5)
+          turtle1.forward(k)
+          turtle2.forward(l)
+          turtle3.forward(m)
+          turtle4.forward(n)
+
+          addk+=k
+          addkk+=l
+          addkkk+=m
+          addkkkk+=n
+
+          if addk >= 480:
+            turtle1.goto(0, -120)
+            #print("winner is turtle 1")
+            b="winner is turtle 1"
+            q=q+1
+            '''turtle.goto(0, -150)
+            turtle.write(b, font=("Arial", 16, "bold"))'''
+            break
+          elif addkk >= 480:
+            turtle2.goto(0, -120)
+            #print("winner is turtle 2")
+            c="winner is turtle 2"
+            w=w+1
+            turtle.goto(0, -150)
+            #turtle.write(c, font=("Arial", 16, "bold"))
+            break
+          elif addkkk >= 480:
+            turtle3.goto(0, -120)
+            #print("winner is turtle 3")
+            d="winner is turtle 3"
+            turtle.goto(0, -150)
+            e=e+1
+            #turtle.write(d, font=("Arial", 16, "bold"))
+            break
+          elif addkkkk >= 480:
+            turtle4.goto(0, -120)
+            #print("winner is turtle 4")
+            e="winner is turtle 4"
+            r=r+1
+            turtle.goto(0, -150)
+            #turtle.write(e, font=("Arial", 16, "bold"))
+            break
+        if sai=='1':
+          if(q==1):
+            print("chandu")
+            b="congratulations you're the winner"
+            turtle.color("green")
+            turtle.goto(-130, 180)
+            turtle.write(b, font=("Arial", 16, "bold"))
+            stop_music()
+          else:
+            print("chandu1")
+            z="BETTER LUCK NEXT TIME"
+            turtle.color("red")
+            turtle.goto(-130, 180)
+            turtle.write(z, font=("Arial", 16, "bold"))
+            stop_music()
+        elif sai=='2':
+          if(w==1):
+            print("chandu2")
+            xy="congratulations you're the winner"
+            turtle.color("green")
+            turtle.goto(-130, 180)
+            turtle.write(xy, font=("Arial", 16, "bold"))
+            stop_music()
+          else:
+            print("chandu3")
+            xyz="BETTER LUCK NEXT TIME"
+            turtle.color("red")
+            turtle.goto(-130, 180)
+            turtle.write(xyz, font=("Arial", 16, "bold"))
+            stop_music()
+        elif sai=='3':
+          if(e==1):
+            print("chandu4")
+            xyzx="congratulations you're the winner"
+            turtle.color("green")
+            turtle.goto(-130, 180)
+            turtle.write(xyzx, font=("Arial", 16, "bold"))
+            stop_music()
+          else:
+            print("chandu5")
+            xyzxa="BETTER LUCK NEXT TIME"
+            turtle.color("red")
+            turtle.goto(-130, 180)
+            turtle.write(xyzxa, font=("Arial", 16, "bold"))
+            stop_music()
+        elif sai=='4':
+          if(r==1):
+            print("chandu6")
+            xyzxas="congratulations you're the winner"
+            turtle.color("green")
+            turtle.goto(-130, 180)
+            turtle.write(xyzxas, font=("Arial", 16, "bold"))
+            stop_music()
+          else:
+            print("chandu7")
+            xyzxasd="BETTER LUCK NEXT TIME"
+            turtle.color("red")
+            turtle.goto(-130, 180)
+            turtle.write(xyzxasd, font=("Arial", 16, "bold"))
+            stop_music()
+        else:
+            xyzxasdj="BETTER LUCK NEXT TIME"
+            turtle.color("red")
+            turtle.goto(-130, 180)
+            turtle.write(xyzxasdj, font=("Arial", 16, "bold"))
+            stop_music()
+    time.sleep(1)
+    new=Tk()
+    select2=0
+    select=Label(new, text = "select the turtle (1) (2) (3) (4)",font = "bold",fg='red',bg='black')
+    select.pack()
+    select1=Entry(new,textvariable=select2,font=20)
+    select1.pack()
+    select3=Button(new,text="enter",fg="white",bg="black",command=store)
+    select3.pack()
+    print(select1.get())
+    new.configure(background = 'black')
+    new.mainloop()
+    
+def chandu():
+    game()
+import sqlite3
+conn=sqlite3.connect('wacky.db')
+c=conn.cursor()
+c.execute("CREATE table if not exists tide (first_name text, last_name text ,mobileno text,country text,email text,user_name text,password text)")
+def login():
+    i=StringVar()
+    def sent():
+        saii=Tk()
+        saii.geometry("1920x1080")
+        frame=Frame(saii,width=600,height=300,bg='grey')
+        frame.place(relx=.5,rely=.5,anchor=CENTER)
+        K=Label(saii,text="FORGOT PASSWORD", fg="firebrick",bg="grey", width="300", height="2", font=("Calibri", 42))
+        K.pack()
+        saii.configure(background = 'skyblue')
+        Label(bg="black",width="1920",height="1080").pack()
+        email_label=Label(saii,text="EMAIL-ID",font = "bold",fg='black',bg='grey')
+        email_label.place(x=530,y=300)
+        email1_entry = Entry(saii,font=20)
+        email1_entry.place(x = 670, y = 300,height=30,width=250)
+        send_button=Button(saii,text="SEND CREDENTIALS",font=15,fg="white",bg="red")
+        send_button.place(x=670,y=350)#000000000000000000000000
+        import smtplib, ssl
+        import string 
+        import random
+        global c1
+        a1=string.digits+string.ascii_letters 
+        b1=6
+        port = 587 
+        import sqlite3
+        conn=sqlite3.connect('wacky.db')
+        c1=conn.cursor()
+        c1.execute('SELECT user_name,password FROM tide WHERE user_name = "%s" and password="%s"'%(username_entry.get(),password_entry.get()))#user_name,username_entry.get()
+        l=c1.fetchall()
+        sm = "smtp.gmail.com"
+        se = "bammidichandu29@gmail.com"
+        re =email1_entry.get()#'sanikommutejareddy@gmail.com'
+        a = "Chandu@123"
+        message = """
+        Subject: turtle race
+        u : {}""".format(l)
+        context = ssl.create_default_context()
+        with smtplib.SMTP(sm, port) as server:
+                server.ehlo() 
+                server.starttls(context=context)
+                server.ehlo() 
+                server.login(se, a)
+                server.sendmail(se, re, message)
+                print('Email Sent')
+                server.quit()
+
+    '''def reset():
+        saii=Tk()
+        saii.geometry("1920x1080")
+        frame=Frame(saii,width=600,height=300,bg='grey')
+        frame.place(relx=.5,rely=.5,anchor=CENTER)
+        K=Label(saii,text="FORGOT PASSWORD", fg="firebrick",bg="grey", width="300", height="2", font=("Calibri", 42))
+        K.pack()
+        saii.configure(background = 'skyblue')
+        Label(bg="black",width="1920",height="1080").pack()
+        email_label=Label(saii,text="EMAIL-ID",font = "bold",fg='black',bg='grey')
+        email_label.place(x=530,y=300)
+        email1_entry = Entry(saii,font=20)
+        email1_entry.place(x = 670, y = 300,height=30,width=250)
+        send_button=Button(saii,text="SEND CREDENTIALS",font=15,fg="white",bg="red")
+        send_button.place(x=670,y=350)
+        otp_label=Label(saii,text="ENTER OTP",font = "bold",fg='black',bg='grey')
+        otp_label.place(x=530,y=400)
+        otp_entry = Entry(saii,font=20)
+        otp_entry.place(x = 670, y = 400,height=30,width=250)
+        newpass_label=Label(saii,text="NEW PASSWORD",font = "bold",fg='black',bg='grey')
+        newpass_label.place(x=470,y=450)
+        email1_entry = Entry(saii,font=20)
+        email1_entry.place(x = 670, y = 450,height=30,width=250)
+        update_button=Button(saii,text="UPDATE PASSWORD",font=15,fg="white",bg="red")
+        update_button.place(x=685,y=500)'''
+    top = Tk()  
+    top.geometry("1920x1080")
+    global username
+    #root=Tk()
+    global password
+    passw=StringVar()
+    def check():
+        import sqlite3
+        conn=sqlite3.connect('wacky.db')
+        c=conn.cursor()
+        #print(username_entry.get())
+        #print(password_entry.get())
+        if (username_entry.get()=="" or password_entry.get()==""):
+            tkinter.messagebox.showerror("Not filled","All fields must be filled")
+        else:
+            c.execute('SELECT user_name,password FROM tide WHERE user_name = "%s" and password="%s"'%(username_entry.get(),password_entry.get()))#user_name,username_entry.get()
+            l=c.fetchall()
+            if(len(l)==1):
+                tkinter.messagebox.showinfo("login successful","now you're all set to play the game")
+                game()
+            else:
+                tkinter.messagebox.showerror("validation","enter valid password")
+    frame=Frame(top,width=600,height=600,bg='grey')
+    frame.place(relx=.5,rely=.5,anchor=CENTER)
+    heading = Label(top, text = "LOG IN TO TURTLE  RACE",font = "bold",fg='black',bg='grey')
+    heading.place(x = 650,y = 160) 
+    uname = Label(top, text = "Username",font=25,fg='black',bg='grey')
+    uname.place(x = 668,y = 260)
+    password = Label(top, text = "Password *",font=25,fg='black',bg='grey')
+    password.place(x = 668, y = 345)  
+    sbmitbtn = Button(top, text = "Submit",activebackground = "pink", activeforeground = "blue",command=check)
+    sbmitbtn.place(x = 745, y = 450)  
+    username_entry = Entry(top,font=20)
+    username_entry.place(x = 670, y = 300,height=30,width=180)
+    password_entry = Entry(top, textvariable=password, show='*',font=20)
+    password_entry.place(x = 670, y = 380,height=30,width=180)
+    forget = Button(top, text = "forget password?",font=25,fg='red',bg='black',command=sent)
+    forget.place(x = 690,y = 500)
+    top.configure(background = 'skyblue')
+def SIGNUP():
+    def db():
+        import sqlite3
+        conn=sqlite3.connect('wacky.db')
+        c=conn.cursor()
+        if (fn_entry.get()=="" or ln_entry.get()=="" or contact_entry.get()=="" or country_entry.get()=="" or email_entry.get()=="" or uname_entry.get()=="" or password_entry.get()=="" or  confirm_entry.get()==""):
+            tkinter.messagebox.showerror("Not filled","All details must be filled")
+        else:
+            c.execute('INSERT into tide values("%s","%s","%s","%s","%s","%s","%s")'%(fn_entry.get(),ln_entry.get(),contact_entry.get(),country_entry.get(),email_entry.get(),uname_entry.get(),password_entry.get()))
+            login()
+            conn.commit()
+    register_screen=Tk()
+    register_screen.title("Register")
+    register_screen.geometry("1920x1080") 
+    global username
+    global username_entry
+    global password_entry
+    firstname = StringVar()
+    lasname = StringVar()
+    contact = StringVar()
+    country = StringVar()
+    email = StringVar()
+    user_name = StringVar()
+    password = StringVar()
+    frame=Frame(register_screen,width=700,height=700,bg='grey')
+    frame.place(relx=.5,rely=.5,anchor=CENTER)
+    heading=Label(register_screen, text="SIGNUP",fg="firebrick",bg='grey',width="20", height="1", font=("Calibri", 32))
+    heading.place(x=550,y=75)
+    first_name = Label(register_screen, text="First Name",height=2,width=10,bg="grey",font=10)
+    first_name.place(x=420 ,y=150)
+    last_name = Label(register_screen, text="last name",height=2,width=10,bg="grey",font=10)
+    last_name.place(x=760 ,y=150)
+    contact_label= Label(register_screen, text="contact",height=2,width=10,bg="grey",font=10)
+    contact_label.place(x=430 ,y=230)
+    country_label= Label(register_screen, text="country",height=2,width=10,bg="grey",font=10)
+    country_label.place(x=760 ,y=230)
+    gender_label= Label(register_screen, text="gender",height=2,width=10,bg="grey",font=10)
+    gender_label.place(x=420 ,y=290)
+    email_id_label = Label(register_screen, text="Email-id",height=2,width=10,bg="grey",font=10)
+    email_id_label.place(x=420 ,y=370)
+    usernmae = Label(register_screen, text="user name",height=2,width=10,bg="grey",font=10)
+    usernmae.place(x=420 ,y=450)
+    passwrod = Label(register_screen, text="password",height=2,width=10,bg="grey",font=10)
+    passwrod.place(x=420 ,y=530)
+    confirm = Label(register_screen, text="confirm your password",height=2,width=20,bg="grey",font=10)
+    confirm.place(x=420 ,y=610)
+    fn_entry = Entry(register_screen, textvariable=firstname,font=20)
+    fn_entry.place(x = 540, y = 160,height=30,width=180)
+    ln_entry = Entry(register_screen, textvariable=lasname,font=20)
+    ln_entry.place(x = 875, y = 160,height=30,width=180)
+    contact_entry = Entry(register_screen,textvariable=contact,font=20)
+    contact_entry.place(x = 540, y = 240,height=30,width=180)
+    country_entry = Entry(register_screen,textvariable=country,font=20)
+    country_entry.place(x = 875, y = 240,height=30,width=180)
+    v=StringVar(register_screen,"1")
+    mael=Radiobutton(register_screen,variable = v,text="male",value = "male")
+    mael.place(x=545,y=300)
+    femael=Radiobutton(register_screen,variable = v,text="female",value = 0)
+    femael.place(x=650,y=300)
+    email_entry = Entry(register_screen,textvariable=email,font=20)
+    email_entry.place(x = 700, y =385,height=30,width=220)
+    uname_entry = Entry(register_screen,textvariable=user_name,font=20)
+    uname_entry.place(x = 700, y =460,height=30,width=220)
+    password_entry = Entry(register_screen,show="*",textvariable=password,font=20)
+    password_entry.place(x = 700, y =535,height=30,width=220)
+    confirm_entry = Entry(register_screen,show="*",font=20)
+    confirm_entry.place(x = 700, y =620,height=30,width=220)
+    button_register=Button(register_screen, text="Register", width=20, height=2, bg="black",fg="grey", command =db)
+    button_register.place(x=720,y=695)
+    register_screen.configure(background = 'skyblue')
+   
+def main_account_screen():
+    global main_screen
+    main_screen = Tk()
+    main_screen.geometry("1920x1080")
+    
+    main_screen.title("Account Login")
+    
+    Label(text="WELCOME TO TURTLE RACE", fg="firebrick",bg="grey", width="300", height="2", font=("Calibri", 42)).pack()
+    Label(text="").pack()
+    Label(bg="black",width="1920",height="1080").pack()
+    heading = Label(main_screen, text = "Already Have An Account",font = "bold",fg='white',bg='black').place(x = 635,y =300)
+    
+    Button(text="Login", height="2", width="30", command = login).place(x=650,y=345)
+    Label(text="").pack()
+    heading = Label(main_screen, text = "New To This Game",font = "bold",fg='white',bg='black').place(x = 660,y =410)
+    Button(text="Signup", height="2", width="30", command=SIGNUP).place(x=650,y=460)
+    guest = Label(main_screen, text = "Play as guest",font = "bold",fg='white',bg='black').place(x = 690,y =530)
+    Button(text="Play", height="2", width="30",command=game).place(x=650,y=580)
+    main_screen.mainloop()
+main_account_screen()
